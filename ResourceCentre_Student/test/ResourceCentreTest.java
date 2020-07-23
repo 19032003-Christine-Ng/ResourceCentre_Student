@@ -58,6 +58,7 @@ public class ResourceCentreTest {
 	public void addChromebookTest() {
 		//fail("Not yet implemented");
 		// write your code here
+<<<<<<< HEAD
 		
 		//Item list is not null, so that can add a new item 
 		//Given an empty list, after adding one item, the size of the list is 1 
@@ -71,6 +72,20 @@ public class ResourceCentreTest {
 		
 		
 		
+=======
+		// Item list is not null, so that can add a new item
+				assertNotNull("Test if there is valid Chromebook arraylist to add to", chromebookList);
+				//Given an empty list, after adding 1 item, the size of the list is 1
+				ResourceCentre.addChromebook(chromebookList, cb1);		
+				assertEquals("Test if that Chromebook arraylist size is 1?", 1, chromebookList.size());
+				
+				//The item just added is as same as the first item of the list
+				assertSame("Test that Chromebook is added same as 1st item of the list?", cb1, chromebookList.get(0));
+				
+				//Add another item. test The size of the list is 2?
+				ResourceCentre.addChromebook(chromebookList, cb2);
+				assertEquals("Test that Camcorder arraylist size is 2?", 2, chromebookList.size());
+>>>>>>> branch 'master' of https://github.com/19032003-Christine-Ng/ResourceCentre_Student.git
 	}
 	
 	@Test
@@ -101,12 +116,50 @@ public class ResourceCentreTest {
 	public void retrieveAllChromebookTest() {
 		//fail("Not yet implemented");
 		// write your code here
+		assertNotNull("Test if there is valid Chromebook arraylist to add to", chromebookList);
+		
+		String allchromebook = ResourceCentre.retrieveAllChromebook(chromebookList);
+		String Output = "";
+		assertEquals("Check that ViewAllChromebooklist", Output, allchromebook);
+		
+		ResourceCentre.addChromebook(chromebookList, cb1);
+		ResourceCentre.addChromebook(chromebookList, cb2);
+		assertEquals("Test if that Chromebook arraylist size is 2?", 2, chromebookList.size());
+		
+		allchromebook= ResourceCentre.retrieveAllChromebook(chromebookList);
+
+		Output = String.format("%-10s %-30s %-10s\n","CC0011", "My Google Chromebook 1st", "Mac OS");
+		Output += String.format("%-10s %-30s %-10s\n","CB0012", "SAMSUNG Chromebook 4+", "Win 10");
+	
+		assertEquals("Check that ViewAllchromebookList", Output, allchromebook);
+		
 	}
 
 	@Test
 	public void doLoanCamcorderTest() {
 		//fail("Not yet implemented");
 		// write your code here
+	
+		ResourceCentre.loanCamcorder(camcorderList);
+		String tag = Helper.readString("Enter asset tag > ");
+		boolean isLoaned = false;
+		
+		for (int i = 0; i < camcorderList.size(); i++) {
+			if (tag.equalsIgnoreCase(camcorderList.get(i).getAssetTag())&& camcorderList.get(i).getIsAvailable()== true) {
+				String due = Helper.readString("Enter due date > ");
+				camcorderList.get(i).setIsAvailable(false);
+				camcorderList.get(i).setDueDate(due);
+				isLoaned = true;
+				System.out.println("Camcorder " + tag + " loaned out");
+			}
+		}
+		if (isLoaned == false) {
+			System.out.println("Invalid asset tag");
+			System.out.println();
+		}
+		
+	
+	
 		
 	}
 	
@@ -114,6 +167,23 @@ public class ResourceCentreTest {
 	public void doLoanChromebookTest() {
 		//fail("Not yet implemented");
 		// write your code here
+	
+		ResourceCentre.loanChromebook(chromebookList);
+		String tag = Helper.readString("Enter asset tag > ");
+		boolean isLoaned = false;
+		
+		for (int i = 0; i < chromebookList.size(); i++) {
+			if(tag.equalsIgnoreCase(chromebookList.get(i).getAssetTag()) && chromebookList.get(i).getIsAvailable() == true) {
+				String due = Helper.readString("Enter due date > ");
+				chromebookList.get(i).setIsAvailable(false);
+				chromebookList.get(i).setDueDate(due);
+				isLoaned = true;
+				System.out.println("Chromebook " + tag + " loaned out");
+			}
+		}
+		if (isLoaned == false) {
+			System.out.println("Invalid asset tag");
+		}
 	}
 	
 	@Test
