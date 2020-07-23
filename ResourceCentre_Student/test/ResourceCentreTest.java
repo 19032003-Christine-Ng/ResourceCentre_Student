@@ -189,7 +189,7 @@ public class ResourceCentreTest {
 	@Test
 	public void doReturnCamcorderTest() {
 		//fail("Not yet implemented");
-		// write your code here
+		// write your code here test 1
 		assertNotNull("Test if Camcorder is added", camcorderList);
 		
 		ResourceCentre.addCamcorder(camcorderList, cc1);
