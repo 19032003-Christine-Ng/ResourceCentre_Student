@@ -124,46 +124,56 @@ public class ResourceCentreTest {
 	@Test
 	public void doLoanCamcorderTest() {
 		//fail("Not yet implemented");
+
 		// write your code here
 		assertNotNull("test if there is valid Camcorder arraylist to loan from", camcorderList);
-		
+
+		// write your code here updated by Samantha
+	
+		// Test if Item list is not null but empty - boundary
+		assertNotNull("Test if there is a valid Camcorder arrayList to loan from", camcorderList);
 		ResourceCentre.addCamcorder(camcorderList, cc1);
-		//normal
-		Boolean ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "8-8-2020");
-		assertTrue("Test if an available item is ok to loand?", ok);
-		//error condition
-		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "8-8-2020");
-		assertFalse("Test if an same item is NOT ok to loan again?",ok);
-		//error condition
+		//Normal 
+		Boolean ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "23-7-2020");
+		assertTrue("Test if an available item is ok to loan?", ok);
+		// Error condition 
+		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "23-7-2020");
+		assertTrue("Test is item is NOT able to be loaned again?", ok);
+		//Error condition 
 		ResourceCentre.addCamcorder(camcorderList, cc2);
 		cc2.setIsAvailable(false);
-		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0012", "8-8-2020");
-		assertFalse("Test that unavailable item is NOT ok to loan?", ok);
-		//error condition
-		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0013", "8-8-2020");
-		assertFalse("Test that unavailable item is NOT ok to loan?", ok);
-
+		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC00112", "23-7-2020");
+		assertFalse("Test that unavailable item is Not able to be loaned?", ok);		
+		//Error condition 
+		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0013", "23-7-2020");
+		assertFalse("Test that item that does not exists Not able to be loaned?", ok);
 	}
 	
 	@Test
 	public void doLoanChromebookTest() {
 		//fail("Not yet implemented");
+
 		// write your code here
 assertNotNull("test if there is valid Chromebook arraylist to loan from", chromebookList);
-		
+
+		// write your code here updated by Samantha
+		assertNotNull("Test if there is a valid Chromebook arrayList to loan from", chromebookList);
 		ResourceCentre.addChromebook(chromebookList, cb1);
-		//normal
-		Boolean ok = ResourceCentre.doLoanChromebook(chromebookList, "CB0011", "8-8-2020");
-		assertTrue("Test if an available item is ok to loand?", ok);
-		//error condition
-		ok = ResourceCentre.doLoanChromebook(chromebookList, "CB0011", "8-8-2020");		
-		assertFalse("Test if an same item is NOT ok to loan again?",ok);
-		//error condition
+		//Normal 
+		Boolean ok = ResourceCentre.doLoanChromebook(chromebookList, "CB0011", "23-7-2020");
+		assertTrue("Test if an available item is ok to loan?", ok);
+		// Error condition 
+		ok = ResourceCentre.doLoanChromebook(chromebookList, "CB0011", "23-7-2020");
+		assertTrue("Test is item is NOT able to be loaned again?", ok);
+		//Error condition 
 		ResourceCentre.addChromebook(chromebookList, cb2);
 		cb2.setIsAvailable(false);
-		ok = ResourceCentre.doLoanChromebook(chromebookList, "CB0012", "8-8-2020");		assertFalse("Test that unavailable item is NOT ok to loan?", ok);
-		//error condition
-		ok = ResourceCentre.doLoanChromebook(chromebookList, "CB0013", "8-8-2020");		assertFalse("Test that unavailable item is NOT ok to loan?", ok);
+		ok = ResourceCentre.doLoanChromebook(chromebookList, "CB00112", "23-7-2020");
+		assertFalse("Test that unavailable item is Not able to be loaned?", ok);		
+		//Error condition 
+		ok = ResourceCentre.doLoanChromebook(chromebookList, "CB0013", "23-7-2020");
+		assertFalse("Test that item that does not exists Not able to be loaned?", ok);
+
 	}
 	
 	@Test
@@ -191,24 +201,26 @@ assertNotNull("test if there is valid Chromebook arraylist to loan from", chrome
 		//fail("Not yet implemented");
 		// write your code heres
 assertNotNull("Test if Chromebook is added", chromebookList);
+
+		// write your code here
+		assertNotNull("Test if Chromebook is added", chromebookList);
 		
 		ResourceCentre.addChromebook(chromebookList, cb1);
 		
 		Boolean isTrue = ResourceCentre.doReturnChromebook(chromebookList, "CC0011");
 		assertFalse("Test if Chromebook is returned", isTrue);
 	
-		ResourceCentre.addCamcorder(camcorderList, cc2);
-		cc2.setIsAvailable(false);
+		ResourceCentre.addChromebook(chromebookList, cb2);
+		cb2.setIsAvailable(false);
 		
-		isTrue = ResourceCentre.doReturnChromebook(chromebookList, "CC0012");		
+		isTrue = ResourceCentre.doReturnChromebook(chromebookList, "CC0012");
 		assertTrue("Test if Chromebook returned", isTrue); 
 		
-		isTrue = ResourceCentre.doReturnChromebook(chromebookList, "CC0013");		
+		isTrue = ResourceCentre.doReturnChromebook(chromebookList, "CC0013");
 		assertFalse("Test if Chromebook not in list is returned", isTrue); 
-		
 	}
 	
-	@After
+	@After-
 	public void tearDown() throws Exception {
 		cc1 = null;
 		cc2 = null;
