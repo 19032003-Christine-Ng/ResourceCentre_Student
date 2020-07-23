@@ -73,7 +73,7 @@ public class ResourceCentre {
 					}
 					if (isLoaned == false) {
 						System.out.println("Invalid asset tag");
-						
+						System.out.println();
 					}
 						
 				} else if (itemType == 2) {
