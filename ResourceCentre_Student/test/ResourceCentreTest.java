@@ -220,7 +220,7 @@ assertNotNull("Test if Chromebook is added", chromebookList);
 		assertFalse("Test if Chromebook not in list is returned", isTrue); 
 	}
 	
-	@After-
+	@After
 	public void tearDown() throws Exception {
 		cc1 = null;
 		cc2 = null;
