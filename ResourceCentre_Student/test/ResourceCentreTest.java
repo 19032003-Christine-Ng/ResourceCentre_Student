@@ -115,7 +115,7 @@ public class ResourceCentreTest {
 	@Test
 	public void retrieveAllChromebookTest() {
 		//fail("Not yet implemented");
-		// write your code here
+		// write your code here code updated by Yi Yang
 		assertNotNull("Test if there is valid Chromebook arraylist to add to", chromebookList);
 		
 		String allchromebook = ResourceCentre.retrieveAllChromebook(chromebookList);
