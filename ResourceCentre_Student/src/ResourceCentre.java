@@ -77,7 +77,7 @@ public class ResourceCentre {
 					}
 						
 				} else if (itemType == 2) {
-					// Loan Chromebook
+					// Loan Chromebooks
 					ResourceCentre.loanChromebook(chromebookList);
 					String tag = Helper.readString("Enter asset tag > ");
 					boolean isLoaned = false;
