@@ -1,10 +1,16 @@
 import static org.junit.Assert.*;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import c209_p05.Helper;
 
 public class ResourceCentreTest {
 	private Camcorder cc1;
@@ -52,6 +58,19 @@ public class ResourceCentreTest {
 	public void addChromebookTest() {
 		//fail("Not yet implemented");
 		// write your code here
+		
+		//Item list is not null, so that can add a new item 
+		//Given an empty list, after adding one item, the size of the list is 1 
+		//The item just added is as same as the first item of the list
+		//Add another item. The size of the list is 2
+		
+
+	
+	}
+		
+		
+		
+		
 	}
 	
 	@Test
@@ -102,11 +121,15 @@ public class ResourceCentreTest {
 		//fail("Not yet implemented");
 		// write your code here
 		
+		
+		
 	}
 	@Test
 	public void doReturnChromebookTest() {
 		//fail("Not yet implemented");
 		// write your code here
+		
+		
 	}
 	
 	@After
