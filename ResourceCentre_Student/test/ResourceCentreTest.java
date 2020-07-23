@@ -124,49 +124,51 @@ public class ResourceCentreTest {
 	@Test
 	public void doLoanCamcorderTest() {
 		//fail("Not yet implemented");
-		// write your code here
+		// write your code here updated by Samantha
 	
-		ResourceCentre.loanCamcorder(camcorderList);
-		String tag = Helper.readString("Enter asset tag > ");
-		boolean isLoaned = false;
+		// Test if Item list is not null but empty - boundary
+		assertNotNull("Test if there is a valid Camcorder arrayList to loan from", camcorderList);
+		ResourceCentre.addCamcorder(camcorderList, cc1);
+		//Normal 
+		Boolean ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "23-7-2020");
+		assertTrue("Test if an available item is ok to loan?", ok);
+		// Error condition 
+		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "23-7-2020");
+		assertTrue("Test is item is NOT able to be loaned again?", ok);
+		//Error condition 
+		ResourceCentre.addCamcorder(camcorderList, cc2);
+		cc2.setIsAvailable(false);
+		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC00112", "23-7-2020");
+		assertFalse("Test that unavailable item is Not able to be loaned?", ok);		
+		//Error condition 
+		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0013", "23-7-2020");
+		assertFalse("Test that item that does not exists Not able to be loaned?", ok);
 		
-		for (int i = 0; i < camcorderList.size(); i++) {
-			if (tag.equalsIgnoreCase(camcorderList.get(i).getAssetTag())&& camcorderList.get(i).getIsAvailable()== true) {
-				String due = Helper.readString("Enter due date > ");
-				camcorderList.get(i).setIsAvailable(false);
-				camcorderList.get(i).setDueDate(due);
-				isLoaned = true;
-				System.out.println("Camcorder " + tag + " loaned out");
-			}
-		}
-		if (isLoaned == false) {
-			System.out.println("Invalid asset tag");
-			System.out.println();
-		}
-				
+		
+			
 	}
 	
 	@Test
 	public void doLoanChromebookTest() {
 		//fail("Not yet implemented");
-		// write your code here
-	
-		ResourceCentre.loanChromebook(chromebookList);
-		String tag = Helper.readString("Enter asset tag > ");
-		boolean isLoaned = false;
+		// write your code here updated by Samantha
+		assertNotNull("Test if there is a valid Chromebook arrayList to loan from", chromebookList);
+		ResourceCentre.addChromebook(chromebookList, cb1);
+		//Normal 
+		Boolean ok = ResourceCentre.doLoanChromebook(chromebookList, "CB0011", "23-7-2020");
+		assertTrue("Test if an available item is ok to loan?", ok);
+		// Error condition 
+		ok = ResourceCentre.doLoanChromebook(chromebookList, "CB0011", "23-7-2020");
+		assertTrue("Test is item is NOT able to be loaned again?", ok);
+		//Error condition 
+		ResourceCentre.addChromebook(chromebookList, cb2);
+		cb2.setIsAvailable(false);
+		ok = ResourceCentre.doLoanChromebook(chromebookList, "CB00112", "23-7-2020");
+		assertFalse("Test that unavailable item is Not able to be loaned?", ok);		
+		//Error condition 
+		ok = ResourceCentre.doLoanChromebook(chromebookList, "CB0013", "23-7-2020");
+		assertFalse("Test that item that does not exists Not able to be loaned?", ok);
 		
-		for (int i = 0; i < chromebookList.size(); i++) {
-			if(tag.equalsIgnoreCase(chromebookList.get(i).getAssetTag()) && chromebookList.get(i).getIsAvailable() == true) {
-				String due = Helper.readString("Enter due date > ");
-				chromebookList.get(i).setIsAvailable(false);
-				chromebookList.get(i).setDueDate(due);
-				isLoaned = true;
-				System.out.println("Chromebook " + tag + " loaned out");
-			}
-		}
-		if (isLoaned == false) {
-			System.out.println("Invalid asset tag");
-		}
 	}
 	
 	@Test
