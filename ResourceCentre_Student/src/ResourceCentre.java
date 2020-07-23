@@ -59,9 +59,41 @@ public class ResourceCentre {
 				if (itemType == 1) {
 					// Loan camcorder
 					ResourceCentre.loanCamcorder(camcorderList);
+					String tag = Helper.readString("Enter asset tag > ");
+					boolean isLoaned = false;
+					
+					for (int i = 0; i < camcorderList.size(); i++) {
+						if (tag.equalsIgnoreCase(camcorderList.get(i).getAssetTag())&& camcorderList.get(i).getIsAvailable()== true) {
+							String due = Helper.readString("Enter due date > ");
+							camcorderList.get(i).setIsAvailable(false);
+							camcorderList.get(i).setDueDate(due);
+							isLoaned = true;
+							System.out.println("Camcorder " + tag + " loaned out");
+						}
+					}
+					if (isLoaned == false) {
+						System.out.println("Invalid asset tag");
+						System.out.println();
+					}
+						
 				} else if (itemType == 2) {
 					// Loan Chromebook
 					ResourceCentre.loanChromebook(chromebookList);
+					String tag = Helper.readString("Enter asset tag > ");
+					boolean isLoaned = false;
+					
+					for (int i = 0; i < chromebookList.size(); i++) {
+						if(tag.equalsIgnoreCase(chromebookList.get(i).getAssetTag()) && chromebookList.get(i).getIsAvailable() == true) {
+							String due = Helper.readString("Enter due date > ");
+							chromebookList.get(i).setIsAvailable(false);
+							chromebookList.get(i).setDueDate(due);
+							isLoaned = true;
+							System.out.println("Chromebook " + tag + " loaned out");
+						}
+					}
+					if (isLoaned == false) {
+						System.out.println("Invalid asset tag");
+					}
 				} else {
 					System.out.println("Invalid type");
 				}
