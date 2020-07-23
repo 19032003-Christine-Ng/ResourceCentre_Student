@@ -52,7 +52,7 @@ public class ResourceCentreTest {
 	public void addChromebookTest() {
 		//fail("Not yet implemented");
 		// write your code here
-		// Item list is not null, so that can add a new item test
+		// Item list is not null, so that can add a new item
 				assertNotNull("Test if there is valid Chromebook arraylist to add to", chromebookList);
 				//Given an empty list, after adding 1 item, the size of the list is 1
 				ResourceCentre.addChromebook(chromebookList, cb1);		
