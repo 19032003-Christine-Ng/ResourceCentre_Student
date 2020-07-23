@@ -135,10 +135,7 @@ public class ResourceCentreTest {
 			System.out.println("Invalid asset tag");
 			System.out.println();
 		}
-		
-	
-	
-		
+				
 	}
 	
 	@Test
