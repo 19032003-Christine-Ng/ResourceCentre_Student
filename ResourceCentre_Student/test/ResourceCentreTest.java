@@ -199,7 +199,7 @@ assertNotNull("test if there is valid Chromebook arraylist to loan from", chrome
 	@Test
 	public void doReturnChromebookTest() {
 		//fail("Not yet implemented");
-		// write your code heres
+		// write your code here
 assertNotNull("Test if Chromebook is added", chromebookList);
 
 		// write your code here
