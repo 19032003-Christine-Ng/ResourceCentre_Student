@@ -144,6 +144,7 @@ public class ResourceCentreTest {
 	public void doLoanChromebookTest() {
 		//fail("Not yet implemented");
 		// write your code here
+	
 		ResourceCentre.loanChromebook(chromebookList);
 		String tag = Helper.readString("Enter asset tag > ");
 		boolean isLoaned = false;
